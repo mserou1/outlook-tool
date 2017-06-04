@@ -2,18 +2,22 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import auth0 from 'auth0-js';
+import { AUTH_CONFIG } from './auth0-variables';
 
 
 @Injectable()
 export class AuthService {
 
+  userProfile: any;
+  requestedScopes: string = 'openid profile read:contacts read:calendars';
+
   auth0 = new auth0.WebAuth({
-    clientID: 'R7GlazvaYq2Xcn3TWjoCfGz8IjWhrdI2',
-    domain: 'marieclaireserou.auth0.com',
+    clientID: AUTH_CONFIG.clientID,
+    domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
-    audience: 'https://marieclaireserou.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
-        scope: 'openid'
+    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
+    redirectUri: AUTH_CONFIG.callbackURL,
+    scope: this.requestedScopes
   });
 
   constructor(public router: Router) {}
@@ -39,9 +43,13 @@ export class AuthService {
   private setSession(authResult): void {
 
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+
+    const scopes = authResult.scope || this.requestedScopes || '';
+
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    localStorage.setItem('scopes', JSON.stringify(scopes));
   }
 
   public logout(): void {
@@ -57,6 +65,11 @@ export class AuthService {
 
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
+  }
+
+  public userHasScopes(scopes: Array<string>): boolean {
+    const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
+    return scopes.every(scope => grantedScopes.includes(scope));
   }
 
 }
