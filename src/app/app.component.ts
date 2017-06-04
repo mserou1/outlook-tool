@@ -9,7 +9,7 @@ import {OnInit} from '@angular/core';
 })
 export class AppComponent {
   constructor(public auth:AuthService){
-    auth.login();
+  //  auth.login();
   }
   title = 'app';
 }
