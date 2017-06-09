@@ -25,9 +25,11 @@ export class AuthService {
   public login(): void {
     console.log("login()");
     this.auth0.authorize();
+
+  //  this.handleAuthentication();
   }
 
-  public handleAuthentication(): void {
+  public handleAuthentication(): any {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
@@ -38,6 +40,9 @@ export class AuthService {
         this.router.navigate(['/home']);
         console.log(err);
       }
+      console.log(authResult);
+      return authResult;
+
     });
   }
 
@@ -47,6 +52,7 @@ export class AuthService {
     const scopes = authResult.scope || this.requestedScopes || '';
 
     localStorage.setItem('profile', JSON.stringify(authResult.idTokenPayload));
+    console.log("immediately after being set:" + localStorage.getItem('profile'));
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
@@ -73,8 +79,20 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
-  public getProfile(): any {
-    return JSON.parse(localStorage.getItem('profile'));
+  public getProfile(cb): void {
+    const accessToken = localStorage.getItem('access_token');
+    if(!accessToken){
+      throw new Error('Access token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) =>{
+      if(profile){
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  //  return JSON.parse(localStorage.getItem('profile'));
   }
 
   public userHasScopes(scopes: Array<string>): boolean {

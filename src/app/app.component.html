@@ -27,7 +27,7 @@
 </nav>
 
 <main class="container">
-  <p *ngIf="auth.isAuthenticated()">WELCOME {{profile.name}}!</p>
-  
+  <p *ngIf="auth.isAuthenticated()"><a routerLink = "/profile">See Profile</a></p>
+
   <router-outlet></router-outlet>
 </main>
