@@ -33,6 +33,7 @@ export class AuthService {
         window.location.hash = '';
         this.setSession(authResult);
         this.router.navigate(['/home']);
+        console.log(authResult);
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);
@@ -43,9 +44,9 @@ export class AuthService {
   private setSession(authResult): void {
 
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-
     const scopes = authResult.scope || this.requestedScopes || '';
 
+    localStorage.setItem('profile', JSON.stringify(authResult.idTokenPayload));
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
@@ -57,6 +58,7 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('profile');
 
     this.router.navigate(['/']);
   }
@@ -65,6 +67,14 @@ export class AuthService {
 
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
+  }
+
+  public getAccessToken(): string {
+    return localStorage.getItem('access_token');
+  }
+
+  public getProfile(): any {
+    return JSON.parse(localStorage.getItem('profile'));
   }
 
   public userHasScopes(scopes: Array<string>): boolean {

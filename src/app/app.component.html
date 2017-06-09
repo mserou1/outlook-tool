@@ -2,8 +2,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Auth0 - Angular</a>
-
       <button
         class="btn btn-primary btn-margin"
         routerLink="/">
@@ -29,5 +27,7 @@
 </nav>
 
 <main class="container">
+  <p *ngIf="auth.isAuthenticated()">WELCOME {{profile.name}}!</p>
+  
   <router-outlet></router-outlet>
 </main>
