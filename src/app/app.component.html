@@ -28,6 +28,7 @@
 
 <main class="container">
   <p *ngIf="auth.isAuthenticated()"><a routerLink = "/profile">See Profile</a></p>
+  <p *ngIf="auth.isAuthenticated()"><a routerLink = "/rooms">See Currently Available Rooms</a></p>
 
   <router-outlet></router-outlet>
 </main>
