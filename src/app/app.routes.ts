@@ -9,4 +9,4 @@ export const ROUTES: Routes = [
   {path: 'rooms', component: RoomsComponent},
   { path: '**', redirectTo: '' }
 ];
-//export const routing: ModuleWithProviders = RouterModule.forRoot(ROUTES);
+export const routing: ModuleWithProviders = RouterModule.forRoot(ROUTES);

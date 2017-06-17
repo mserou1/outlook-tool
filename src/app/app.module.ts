@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomsComponent } from './rooms/rooms.component';
-
-
 import { AuthService } from './auth/auth.service';
-import { RoomService } from './room.service';
+import { RoomsService } from './rooms/rooms.service';
+
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { ROUTES } from './app.routes';
 
@@ -20,6 +20,7 @@ import { ROUTES } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(ROUTES, { useHash:true})
   ],
   providers: [AuthService],
