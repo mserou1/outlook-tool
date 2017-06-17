@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import { OnInit } from '@angular/core';
-import { RoomService } from './room.service';
+//import { RoomService } from './room.service';
 
 //import {ProfileService} from './profile.service';
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   errorMessage: string;
   rooms = [];
   accessToken: string;
-  roomService: RoomService;
+//  roomService: RoomService;
 
 
   constructor(private auth:AuthService){
