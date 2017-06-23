@@ -9,7 +9,7 @@ import { RoomService } from './room.service';
   <div class="col-md-12">
     <table class="table table-striped">
       <tr *ngFor="let room of rooms">
-        <td>{{ room.name }}</td>
+        <td><button>{{ room.name }}</button></td>
       </tr>
     </table>
     <div class="alert alert-danger" *ngIf="error">{{ error }}</div>

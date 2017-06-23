@@ -1,0 +1,93 @@
+[
+  {
+    "roomId": "3100",
+    "serialNumber": "SRL000001",
+    "name": "~Sample GECA NOLA ConfRoom 3100 Whatchamacallit",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF01",
+    "active": true
+  },{
+    "roomId": "3102",
+    "serialNumber": "SRL000002",
+    "name": "~Sample GECA NOLA ConfRoom 3102 Whoziwatzitz",
+    "roomDescription": "A place to do stuff at",
+    "status": "Not Available",
+    "size": null,
+    "roomTag": "B99749BF02",
+    "active": true
+  },{
+    "roomId": "3116",
+    "serialNumber": "SRL000003",
+    "name": "~Sample GECA NOLA ConfRoom 3116 Wazzamattayu",
+    "roomDescription": "A place to do stuff at",
+    "status": "Not Available",
+    "size": null,
+    "roomTag": "B99749BF03",
+    "active": true
+  },{
+    "roomId": "3207",
+    "serialNumber": "SRL000004",
+    "name": "~Sample GECA NOLA ConfRoom 3207 Yosemite",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF04",
+    "active": false
+  },{
+    "roomId": "3212",
+    "serialNumber": "SRL000005",
+    "name": "~Sample GECA NOLA ConfRoom 3212 Yajirobe",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF05",
+    "active": true
+  },{
+    "roomId": "3230",
+    "serialNumber": "SRL000006",
+    "name": "~Sample GECA NOLA ConfRoom 3230 Yurtz",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF06",
+    "active": true
+  },{
+    "roomId": "3001",
+    "serialNumber": "SRL000007",
+    "name": "~Sample GECA NOLA ConfRoom 3001 Howzabowdit",
+    "roomDescription": "A place to do stuff at",
+    "status": "Not Available",
+    "size": null,
+    "roomTag": "B99749BF07",
+    "active": true
+  },{
+    "roomId": "3007",
+    "serialNumber": "SRL000008",
+    "name": "~Sample GECA NOLA ConfRoom 3007 Hashbrowns",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF08",
+    "active": true
+  },{
+    "roomId": "3306",
+    "serialNumber": "SRL000009",
+    "name": "~Sample GECA NOLA ConfRoom 3306 Gonabaitem",
+    "roomDescription": "A place to do stuff at",
+    "status": "Available",
+    "size": null,
+    "roomTag": "B99749BF09",
+    "active": false
+  },{
+    "roomId": "3324",
+    "serialNumber": "SRL000010",
+    "name": "~Sample GECA NOLA ConfRoom 3324 Goomba",
+    "roomDescription": "A place to do stuff at",
+    "status": "Not Available",
+    "size": null,
+    "roomTag": "B99749BF10",
+    "active": true
+  }
+]
