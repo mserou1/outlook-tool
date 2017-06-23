@@ -66,7 +66,7 @@ export class AuthService {
     localStorage.removeItem('expires_at');
     localStorage.removeItem('profile');
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/login/login.component']);
   }
 
   public isAuthenticated(): boolean {

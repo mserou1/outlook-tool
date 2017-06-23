@@ -10,9 +10,7 @@ import {RoomsService} from './rooms.service';
   moduleId: module.id,
   selector: 'rooms-component',
   providers: [RoomsService],
-  template: `<div>
-  <p>Rooms will be displayed here</p>
-  </div>`
+  template: ``
 
 }) export class RoomsComponent {
   private rooms:Response;
