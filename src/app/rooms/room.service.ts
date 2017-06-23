@@ -10,7 +10,7 @@ export class RoomService {
   constructor(public http: Http, public authHttp: AuthHttp) { }
 
   public getRooms() {
-    var getResponse = this.http.get('http://localhost:8080/assets')
+    var getResponse = this.http.get('https://graph.microsoft.com/v1.0/me/contacts')
     .map(res => res.json())
     return getResponse;
   }
