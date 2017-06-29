@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { RoomDetailComponent } from './rooms/room-detail.component';
 
 import { RoomService } from './rooms/room.service';
 import { AuthService } from './auth/auth.service';
@@ -25,7 +26,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions ) {
   declarations: [
     AppComponent,
     ProfileComponent,
-    RoomsComponent
+    RoomsComponent,
+    RoomDetailComponent
   ],
   imports: [
     BrowserModule,

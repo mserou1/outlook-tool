@@ -1,4 +1,4 @@
-export class realModel {
+export class contactModel {
             id: String;
             createdDateTime: Date;
             lastModifiedDateTime: Date;
