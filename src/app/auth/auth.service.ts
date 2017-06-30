@@ -4,7 +4,6 @@ import 'rxjs/add/operator/filter';
 import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 
-
 @Injectable()
 export class AuthService {
 
@@ -14,7 +13,7 @@ export class AuthService {
   auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,
     domain: AUTH_CONFIG.domain,
-    responseType: 'token id_token',
+    responseType: 'id_token token',
     audience: `https://${AUTH_CONFIG.domain}/userinfo`,
     redirectUri: AUTH_CONFIG.callbackURL,
     scope: this.requestedScopes
@@ -25,8 +24,6 @@ export class AuthService {
   public login(): void {
     console.log("login()");
     this.auth0.authorize();
-
-  //  this.handleAuthentication();
   }
 
   public handleAuthentication(): any {
@@ -42,7 +39,6 @@ export class AuthService {
       }
       console.log(authResult);
       return authResult;
-
     });
   }
 

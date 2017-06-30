@@ -18,6 +18,13 @@
       <button
         class="btn btn-primary btn-margin"
         *ngIf="auth.isAuthenticated()"
+        routerLink = "/profile">
+          Profile
+      </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="auth.isAuthenticated()"
         (click)="auth.logout()">
           Log Out
       </button>
@@ -27,8 +34,8 @@
 </nav>
 
 <main class="container">
-  <p *ngIf="auth.isAuthenticated()"><a routerLink = "/profile">See Profile</a></p>
-  <p *ngIf="auth.isAuthenticated()"><a routerLink = "/rooms">See Currently Available Rooms</a></p>
+  <p *ngIf="auth.isAuthenticated()">
+  <a routerLink = "/rooms">See Currently Available Rooms</a></p>
 
   <router-outlet></router-outlet>
 </main>
