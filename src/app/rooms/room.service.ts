@@ -27,7 +27,7 @@ export class RoomService {
   //   return getResponse;
   // }
   public getRooms() {
-    var getResponse = this.http.get('http://localhost:8080/assets')
+    var getResponse = this.http.get('http://localhost:8080/assets/available')
     .map(res => res.json());
     return getResponse;
   }
