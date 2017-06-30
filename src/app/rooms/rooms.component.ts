@@ -37,11 +37,12 @@ export class RoomsComponent implements OnInit {
 
   }
 
+
+
   ngOnInit(){
-  //  this.roomService.getRooms()
-  //  .subscribe(
-  //    res => {this.rooms = res, console.log(res)},
-  //    error => this.error = error.statusText
-  //  );
+    this.roomService.getRooms().subscribe(
+      res=>{this.rooms = res},
+      error=>this.error = error.statusText
+    );
   }
 }

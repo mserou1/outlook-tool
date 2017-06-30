@@ -19,11 +19,12 @@ import { RoomService } from './room.service';
   <div><label class="label label-default">Displays:</label> {{room.displays}} </div>
   <div *ngIf="room.conference"><label class="label label-info">Teleconference Enabled</label></div>
   <p></p>
-  <div><button class="btn btn-success btn-group-justified"> Book This Room! </button></div>
+  <div><button class="btn btn-success btn-group-justified" (click)="updateRoomAvailability()"> Book This Room! </button></div>
 </div>`
 })
 
 export class RoomDetailComponent implements OnInit {
+//  private room:any;
 
   constructor(
     private roomService: RoomService,
@@ -36,6 +37,13 @@ export class RoomDetailComponent implements OnInit {
       this.route.params
    .switchMap((params: Params) => this.roomService.getRoom(+params['id']))
    .subscribe(room => this.room = room);
+    }
+
+    public updateRoomAvailability(){
+      //console.log("this is a function.")
+      this.roomService.updateRoomAvailability(this.room).subscribe();
+      ;
+
     }
 
     @Input() room: any;

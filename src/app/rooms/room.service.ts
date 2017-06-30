@@ -37,4 +37,16 @@ export class RoomService {
     .map(rooms => rooms.find(room => room.alias == id));
   }
 
+  public updateRoomAvailability(room: any){
+  //  console.log("called successfully")
+  //url:string =
+  let roomUrl = "http://localhost:8080/assets/book/" + room.alias;
+  console.log("calling for get at : " + roomUrl);
+
+   return this.http.get(roomUrl.toString())
+    .map(res => res.json());
+  ;
+
+ }
+
 }

@@ -36,4 +36,8 @@ export class RoomService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+
+  updateRoomAvailability(room: any){
+    console.log("called successfully")
+ }
 }
